@@ -13,7 +13,7 @@ public class PerformanceComparison {
     static final int ITERATIONS = 10;
 
     static String[] testData(int size) {
-        return (String[]) IntStream.range(0, size)
+        return IntStream.range(0, size)
                 .mapToObj((i) -> "String" + i)
                 .toArray(count -> new String[count]);
     }
