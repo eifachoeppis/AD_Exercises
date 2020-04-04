@@ -36,13 +36,16 @@ public final class BankAccount {
     }
 
     private void deposit(final int amount) {
-        this.balance += amount;
+        synchronized (lock){
+            this.balance += amount;
+        }
     }
 
     public void transfer(final BankAccount target, final int amount) {
         synchronized (lock){
             this.balance -= amount;
-            target.deposit(amount);
         }
+        Thread.yield();
+        target.deposit(amount);
     }
 }
