@@ -108,6 +108,7 @@ public class ProbingHashSet<T> implements HashSet<T>, Iterable<T> {
                 return false;
             }
 
+            @SuppressWarnings("unchecked")
             @Override
             public T next() {
                 return (T) table[index++];
