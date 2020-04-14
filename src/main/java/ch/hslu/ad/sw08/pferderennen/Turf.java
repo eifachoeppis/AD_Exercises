@@ -27,7 +27,7 @@ public final class Turf {
     private Turf() {
     }
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws InterruptedException{
         final int participants = 5;
 
         final Synch starterBox = new Latch(participants);
@@ -39,13 +39,9 @@ public final class Turf {
             thread.start();
         }
 
-        try{
-            starterBox.release();
-            Thread.sleep(10);
-            Interrupt(threads);
-        } catch (InterruptedException interruptedException){
-            LOG.info("main-Thread interrupted");
-        }
+        starterBox.release();
+        Thread.sleep(10);
+        Interrupt(threads);
     }
 
     private static void Interrupt(Iterable<Thread> threads){

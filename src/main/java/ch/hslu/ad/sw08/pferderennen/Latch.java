@@ -22,7 +22,7 @@ public class Latch implements Synch {
 
     private static final Logger LOG = LogManager.getLogger(Latch.class);
 
-    private final Object LOCK = new Object();
+    private final Object lock = new Object();
     private boolean hasStarted = false;
     private final int totalParticipants;
     private int participants = 0;
@@ -37,28 +37,30 @@ public class Latch implements Synch {
 
     @Override
     public void acquire() throws InterruptedException {
-        synchronized (this.LOCK){
+        synchronized (this.lock){
             this.participants++;
             if (this.participants >= this.totalParticipants && !this.hasStarted){
-                this.LOCK.notifyAll();
+                this.lock.notifyAll();
             }
 
             while (!this.hasStarted){
-                this.LOCK.wait();
+                this.lock.wait();
             }
         }
     }
 
     @Override
     public void release() throws InterruptedException {
-        synchronized (this.LOCK){
+        synchronized (this.lock){
             while(this.participants < this.totalParticipants){
-                this.LOCK.wait();
+                this.lock.wait();
             }
 
             LOG.info("Start...");
-            this.hasStarted = true;
-            this.LOCK.notifyAll();
+            if (!this.hasStarted){
+                this.hasStarted = true;
+                this.lock.notifyAll();
+            }
         }
     }
 }
