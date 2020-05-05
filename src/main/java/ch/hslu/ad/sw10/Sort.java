@@ -162,7 +162,7 @@ public final class Sort {
         }
     }
 
-    private static void quickSort(final int[] arrayToSort, final int left, final int right) {
+    public static void quickSort(final int[] arrayToSort, final int left, final int right) {
         int up = left;
         int down = right - 1;
         int separatingElement = arrayToSort[right];
