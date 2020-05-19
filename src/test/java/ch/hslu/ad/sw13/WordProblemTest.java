@@ -1,4 +1,5 @@
 package ch.hslu.ad.sw13;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,17 +7,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class WordProblemTest {
 
     @Test
-    void isWordLanguage_null_throws(){
+    void isWordLanguage_null_throws() {
         assertThrows(IllegalArgumentException.class, () -> WordProblem.isWordLanguage(null));
     }
 
     @Test
-    void isWordLanguage_empty_false(){
+    void isWordLanguage_empty_false() {
         assertFalse(WordProblem.isWordLanguage(""));
     }
 
     @Test
-    void isWordLanguage_0_true(){
+    void isWordLanguage_0_true() {
         assertTrue(WordProblem.isWordLanguage("0"));
     }
 
@@ -26,12 +27,12 @@ class WordProblemTest {
     }
 
     @Test
-    void isWordLanguage_0101110_true(){
+    void isWordLanguage_0101110_true() {
         assertTrue(WordProblem.isWordLanguage("0101110"));
     }
 
     @Test
-    void isWordLanguage_0101010_true(){
+    void isWordLanguage_0101010_true() {
         assertTrue(WordProblem.isWordLanguage("0101010"));
     }
 
@@ -56,7 +57,7 @@ class WordProblemTest {
     }
 
     @Test
-    void isWordLanguage_123_false(){
+    void isWordLanguage_123_false() {
         assertFalse(WordProblem.isWordLanguage("123"));
     }
 
