@@ -12,12 +12,12 @@ public class StateOne implements WordState {
     }
 
     @Override
-    public WordState Zero() {
+    public WordState zero() {
         return InvalidState.getInstance();
     }
 
     @Override
-    public WordState One() {
+    public WordState one() {
         return StateTwo.getInstance();
     }
 }

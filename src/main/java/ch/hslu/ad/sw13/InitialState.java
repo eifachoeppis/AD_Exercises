@@ -11,12 +11,12 @@ public class InitialState implements WordState{
     }
 
     @Override
-    public WordState Zero() {
+    public WordState zero() {
         return StateOne.getInstance();
     }
 
     @Override
-    public WordState One() {
+    public WordState one() {
         return InvalidState.getInstance();
     }
 }

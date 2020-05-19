@@ -20,9 +20,9 @@ public class WordProblem {
         for (int i = 0; i < word.length(); i++) {
             char character = word.charAt(i);
             if (character == '0') {
-                state = state.Zero();
+                state = state.zero();
             } else if (character == '1') {
-                state = state.One();
+                state = state.one();
             } else {
                 return false;
             }

@@ -13,12 +13,12 @@ public class InvalidState implements WordState{
     }
 
     @Override
-    public WordState Zero() {
+    public WordState zero() {
         return INSTANCE;
     }
 
     @Override
-    public WordState One() {
+    public WordState one() {
         return INSTANCE;
     }
 }
